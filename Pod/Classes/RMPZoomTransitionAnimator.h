@@ -20,6 +20,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, RMPZoomTransitionImageViewStyle) {
+    RMPZoomTransitionImageViewStyleDefault = 0,
+    RMPZoomTransitionImageViewStyleFadeOut,
+};
+
 @class RMPZoomTransitionAnimator;
 
 /**
@@ -105,6 +110,11 @@
  A Boolean value that determines whether transition animation is going forward.
  */
 @property (nonatomic) BOOL goingForward;
+
+/**
+ The transition style of the Image View.
+ */
+@property (nonatomic) RMPZoomTransitionImageViewStyle imageViewStyle;
 
 /**
  The animator's delegate for transition in source view controller.

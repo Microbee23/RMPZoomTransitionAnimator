@@ -110,7 +110,8 @@
                          animations:^{
                              sourceImageView.frame = [self.destinationTransition transitionDestinationImageViewFrame];
                              sourceImageView.transform = CGAffineTransformMakeScale(1.02, 1.02);
-                             alphaView.alpha = 0.9;
+                             sourceImageView.alpha = self.imageViewStyle == RMPZoomTransitionImageViewStyleFadeOut ? 0.0 : 1.0;
+                             alphaView.alpha = self.imageViewStyle == RMPZoomTransitionImageViewStyleFadeOut ? 0.0 : 0.9;
                          }
                          completion:^(BOOL finished) {
                              [UIView animateWithDuration:kForwardCompleteAnimationDuration
@@ -137,11 +138,13 @@
                          }];
         
     } else {
+        sourceImageView.alpha = self.imageViewStyle == RMPZoomTransitionImageViewStyleFadeOut ? 0.0 : 1.0;
         [UIView animateWithDuration:kBackwardAnimationDuration
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              sourceImageView.frame = [self.destinationTransition transitionDestinationImageViewFrame];
+                             sourceImageView.alpha = 1.0;
                              alphaView.alpha = 0;
                          }
                          completion:^(BOOL finished) {
