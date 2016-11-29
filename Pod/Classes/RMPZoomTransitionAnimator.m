@@ -152,7 +152,7 @@
                                                    delay:0
                                                  options:UIViewAnimationOptionCurveEaseOut
                                               animations:^{
-                                                  sourceImageView.alpha = 0;
+                                                  sourceImageView.alpha = self.imageViewStyle == RMPZoomTransitionImageViewStyleFadeOut ? 1.0 : 0.0;
                                               }
                                               completion:^(BOOL finished) {
                                                   if ([self.destinationTransition conformsToProtocol:@protocol(RMPZoomTransitionAnimating)] &&
